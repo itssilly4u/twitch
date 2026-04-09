@@ -106,22 +106,26 @@ menuHelp.onclick = () => {
 // Start the app by loading the Chat commands
 load('chat');
 
-// --- FUN BUTTON LOGIC ---
+// --- UPDATED FUN BUTTON LOGIC ---
 const appWindow = document.getElementById('app-window');
 const btnMin = document.getElementById('btn-min');
 const btnMax = document.getElementById('btn-max');
 const btnClose = document.getElementById('btn-close');
 
-// Minimize: Toggles the "Window Shade" effect
+// Minimize: Toggles the "Window Shade" and makes sure we aren't maximized
 btnMin.onclick = () => {
+    appWindow.classList.remove('maximized'); // Clear full screen first
     appWindow.classList.toggle('minimized');
+    
+    // Reset max icon just in case
+    btnMax.innerText = '□';
 };
 
-// Maximize: Toggles Full Screen mode
+// Maximize: Toggles Full Screen and makes sure we aren't hidden
 btnMax.onclick = () => {
+    appWindow.classList.remove('minimized'); // Show content immediately
     appWindow.classList.toggle('maximized');
     
-    // Changes the icon from Maximize to 'Restore Down'
     if (appWindow.classList.contains('maximized')) {
         btnMax.innerText = '🗗'; 
     } else {
@@ -129,7 +133,7 @@ btnMax.onclick = () => {
     }
 };
 
-// Close: Fake Error Message
+// Close: Keeps the same roast
 btnClose.onclick = () => {
     showPopup("⚠️ ERROR: Skill issue detected. Cannot close window.", 4000);
 };
