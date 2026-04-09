@@ -48,7 +48,7 @@ body, html {
     background-size: 60px 60px;
     background-position: 0 0, 0 0;
     transform: perspective(500px) rotateX(68deg);
-    animation: gridMove 10s linear infinite; 
+    animation: gridMove 20s linear infinite; 
     -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 70%);
     mask-image: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 70%);
 }
@@ -62,17 +62,8 @@ body, html {
     max-height: 250px; /* Keeps it from being too massive */
     max-width: 90vw;
     z-index: 0; /* Ensures it stays behind your main window */
-    
-    /* The goofy wobble-float animation */
-    animation: floatSilly 4s ease-in-out infinite;
 }
 
-/* Makes the image float up and down while slightly tilting left and right */
-@keyframes floatSilly {
-    0% { transform: translate(-50%, 0px) rotate(-4deg); }
-    50% { transform: translate(-50%, -25px) rotate(4deg); }
-    100% { transform: translate(-50%, 0px) rotate(-4deg); }
-}
 
 @keyframes gridMove {
     0% { background-position: 0 0, 0 0; }
