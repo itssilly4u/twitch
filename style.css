@@ -11,7 +11,7 @@
 
 * { 
     box-sizing: border-box; 
-    cursor: url('https://cur.cursors-4u.net/games/gam-4/gam372.cur'), auto !important; 
+    cursor: url('gam372.cur'), auto !important; 
     border-radius: 0 !important; 
 }
 
@@ -32,25 +32,16 @@ body, html {
     width: 100vw;
     height: 100vh;
     z-index: -1;
-    background: linear-gradient(to bottom, #0a0127 0%, #2b0b57 60%, #4b1d8d 100%);
-    overflow: hidden;
 }
 
-.retro-grid {
-    position: absolute;
-    bottom: -50%;
-    left: -50%;
-    width: 200%;
-    height: 140%;
-    background-image:
-        linear-gradient(var(--neon-teal) 2px, transparent 2px),
-        linear-gradient(90deg, var(--neon-teal) 2px, transparent 2px);
-    background-size: 60px 60px;
-    background-position: 0 0, 0 0;
-    transform: perspective(500px) rotateX(68deg);
-    animation: gridMove 20s linear infinite; 
-    -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 70%);
-    mask-image: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 70%);
+#retro-bg video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
 }
 
 /* --- THE SECRET SILLY CENTERPIECE --- */
@@ -65,14 +56,8 @@ body, html {
 }
 
 
-#retro-bg.hidden .retro-grid,
 #retro-bg.hidden .retro-centerpiece {
     display: none;
-}
-
-@keyframes gridMove {
-    0% { background-position: 0 0, 0 0; }
-    100% { background-position: 0 60px, 0 0; }
 }
 
 .desktop {
