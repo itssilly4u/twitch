@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>itssilly.xyz | Commands</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="retro-bg">
+    <div class="retro-grid"></div>
+</div>
+
+<div class="desktop">
+    <div id="copy-toast">COMMAND COPIED!</div>
+
+    <div class="window" id="app-window">
+        <div class="title-bar">
+            <span class="title-text">Command_Manager.exe</span>
+            <div class="title-buttons-stack">
+                <div class="win-btn" id="btn-min">_</div>
+                <div class="win-btn" id="btn-max">□</div>
+                <div class="win-btn" id="btn-close">×</div>
+            </div>
+        </div>
+
+        <div class="menu-bar">
+            <span class="menu-item active" id="menu-chat">Chat Commands</span>
+            <span class="menu-item" id="menu-audio">Audio FX</span>
+            <span class="menu-item" id="menu-help">Help</span>
+        </div>
+
+        <div class="info-bar">
+            💡 Click any blue command to instantly copy it to your clipboard.
+        </div>
+
+        <div class="window-content">
+            <div class="command-grid" id="command-list">
+                </div>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

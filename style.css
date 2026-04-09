@@ -1,0 +1,248 @@
+:root {
+    --bg-purple: #4157cc;      
+    --win-purple: #4157cc;     
+    --neon-teal: #01cdfe;      
+    --neon-pink: #ff71ce;      
+    --win-white: #ffffff;      
+    --text-main: #000000;      
+    --text-alt: #ffffff;       
+    --border-width: 3px;       
+}
+
+* { 
+    box-sizing: border-box; 
+    cursor: url('https://cur.cursors-4u.net/games/gam-4/gam372.cur'), auto !important; 
+    border-radius: 0 !important; 
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    font-family: 'MS Sans Serif', Tahoma, Geneva, sans-serif; 
+}
+
+/* --- PURE CSS BACKGROUND --- */
+#retro-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    background: linear-gradient(to bottom, #0a0127 0%, #2b0b57 60%, #4b1d8d 100%);
+    overflow: hidden;
+}
+
+.retro-grid {
+    position: absolute;
+    bottom: -50%;
+    left: -50%;
+    width: 200%;
+    height: 140%;
+    background-image:
+        linear-gradient(var(--neon-teal) 2px, transparent 2px),
+        linear-gradient(90deg, var(--neon-teal) 2px, transparent 2px);
+    background-size: 60px 60px;
+    background-position: 0 0, 0 0;
+    transform: perspective(500px) rotateX(68deg);
+    animation: gridMove 1s linear infinite; 
+    -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 70%);
+    mask-image: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 70%);
+}
+
+@keyframes gridMove {
+    0% { background-position: 0 0, 0 0; }
+    100% { background-position: 0 60px, 0 0; }
+}
+
+.desktop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+/* --- TOAST NOTIFICATION --- */
+#copy-toast {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    background: var(--neon-teal);
+    border: var(--border-width) solid #000;
+    padding: 12px 24px;
+    font-weight: bold;
+    box-shadow: 6px 6px 0px rgba(0,0,0,0.6);
+    display: none; 
+    z-index: 1000;
+    animation: slideIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes slideIn {
+    from { transform: translateX(150%); }
+    to { transform: translateX(0); }
+}
+
+/* --- THE WINDOW --- */
+.window {
+    width: 800px;
+    background: var(--win-purple);
+    border: var(--border-width) solid #000;
+    position: relative;
+    box-shadow: 6px 6px 0px rgba(0,0,0,0.8); 
+    z-index: 1;
+}
+
+.title-bar {
+    height: 35px;
+    background: linear-gradient(90deg, var(--neon-teal), var(--neon-pink), var(--neon-teal));
+    background-size: 200% auto;
+    animation: gradientMove 4s linear infinite;
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+    border-bottom: var(--border-width) solid #000;
+    position: relative;
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+}
+
+.title-text { 
+    font-weight: bold; 
+    font-size: 16px; 
+    color: var(--text-main);
+}
+
+.title-buttons-stack {
+    position: absolute;
+    right: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex; 
+    gap: 4px; 
+}
+
+.win-btn {
+    width: 22px;
+    height: 22px;
+    background: var(--neon-teal); 
+    border: 2px solid #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 14px;
+    box-shadow: inset -1px -1px 0px rgba(0,0,0,0.5), inset 1px 1px 0px rgba(255,255,255,0.8);
+}
+
+.win-btn:hover { background: var(--neon-pink); }
+
+/* --- THE NEW MENU BAR --- */
+.menu-bar { 
+    background: var(--win-purple); 
+    padding: 6px 10px; 
+    display: flex;
+    gap: 10px;
+    border-bottom: var(--border-width) solid #000;
+}
+
+.menu-item { 
+    color: var(--text-alt); 
+    font-size: 14px; 
+    padding: 4px 10px;
+    font-weight: bold;
+    border: 2px solid transparent; 
+}
+
+.menu-item:hover {
+    border: 2px dashed var(--neon-pink);
+    color: var(--neon-pink);
+}
+
+.menu-item.active {
+    background: var(--neon-teal);
+    color: var(--text-main);
+    border: 2px solid #000;
+    animation: retroPop 1s steps(2, end) infinite;
+}
+
+@keyframes retroPop {
+    0% { box-shadow: 2px 2px 0px var(--neon-pink); transform: translate(-1px, -1px); }
+    50% { box-shadow: 0px 0px 0px var(--neon-pink); transform: translate(0px, 0px); }
+    100% { box-shadow: 2px 2px 0px var(--neon-pink); transform: translate(-1px, -1px); }
+}
+
+/* --- INFO BAR --- */
+.info-bar {
+    background: #ffffcc; 
+    color: #000; 
+    padding: 6px 10px;
+    margin: 10px 10px 0 10px; 
+    font-size: 13px;
+    border: 2px solid #000; 
+    box-shadow: inset -1px -1px 0px #b0b0b0, inset 1px 1px 0px #ffffff;
+}
+
+/* --- COMMAND CONTENT --- */
+.window-content {
+    background: var(--win-white);
+    margin: 10px;
+    height: 450px;
+    border: 3px solid #000; 
+    overflow-y: scroll;
+    padding: 20px;
+}
+
+.window-content::-webkit-scrollbar { width: 15px; }
+.window-content::-webkit-scrollbar-track { background: #dfdfdf; border-left: 2px solid #000; }
+.window-content::-webkit-scrollbar-thumb { background: var(--neon-teal); border: 2px solid #000; }
+
+.command-row {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    padding: 10px 0; 
+    border-bottom: 1px dashed #bbb;
+    align-items: center; 
+}
+
+.cmd-trigger {
+    color: #0000ff; 
+    font-weight: bold;
+    text-decoration: underline; 
+    font-size: 16px;
+    cursor: pointer;
+    background: transparent; 
+    padding: 0;
+    border: none; 
+}
+
+.cmd-trigger:hover { color: var(--neon-pink); }
+.cmd-desc { font-size: 15px; color: #000; }
+
+/* --- FUN BUTTON STATES --- */
+
+/* When minimized, hide everything except the title bar */
+.window.minimized .menu-bar,
+.window.minimized .info-bar,
+.window.minimized .window-content {
+    display: none;
+}
+
+/* When maximized, fill the entire screen and remove the shadow */
+.window.maximized {
+    width: 100vw !important;
+    height: 100vh !important;
+    border: none;
+    box-shadow: none;
+}
+
+/* Stretch the white content box to fill the new massive window */
+.window.maximized .window-content {
+    height: calc(100vh - 120px); 
+}
