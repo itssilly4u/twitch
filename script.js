@@ -73,7 +73,7 @@ function load(type) {
             navigator.clipboard.writeText(cmd.name).then(() => {
                 left.innerText = "COPIED!";
                 left.classList.add('copied');
-                showPopup(`<span style="font-size: 30px;">📎</span>${cmd.name} copied to clipboard`, 2000);
+                showPopup(`<span style="font-size: 25px;">📎</span>${cmd.name} copied to clipboard`, 2000);
                 setTimeout(() => {
                     left.innerText = originalText;
                     left.classList.remove('copied');
