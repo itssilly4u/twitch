@@ -40,15 +40,13 @@ const menuHelp = document.getElementById('menu-help');
 
 let toastTimer; // Keeps track of the popup timer so it doesn't glitch
 
-// --- POPUP NOTIFICATION LOGIC ---
+// SHOW POPUP NOTIFICATION
 function showPopup(message, duration) {
-    toast.innerText = message;
+    toast.innerHTML = message;
     toast.style.display = 'block';
     
-    // Clear any existing timer so they don't overlap
     clearTimeout(toastTimer);
     
-    // Hide it after the duration
     toastTimer = setTimeout(() => {
         toast.style.display = 'none';
     }, duration);
@@ -71,8 +69,15 @@ function load(type) {
         
         // COPY ON CLICK
         left.onclick = () => {
+            const originalText = left.innerText;
             navigator.clipboard.writeText(cmd.name).then(() => {
-                showPopup(`COPIED: ${cmd.name}`, 2000);
+                left.innerText = "COPIED!";
+                left.classList.add('copied');
+                showPopup(`<span style="font-size: 30px;">📎</span>${cmd.name} copied to clipboard`, 2000);
+                setTimeout(() => {
+                    left.innerText = originalText;
+                    left.classList.remove('copied');
+                }, 2000);
             });
         };
 
@@ -109,6 +114,7 @@ load('chat');
 
 // --- UPDATED FUN BUTTON LOGIC ---
 const appWindow = document.getElementById('app-window');
+const retroBg = document.getElementById('retro-bg');
 const btnMin = document.getElementById('btn-min');
 const btnMax = document.getElementById('btn-max');
 const btnClose = document.getElementById('btn-close');
@@ -117,6 +123,9 @@ const btnClose = document.getElementById('btn-close');
 btnMin.onclick = () => {
     appWindow.classList.remove('maximized'); // Clear full screen first
     appWindow.classList.toggle('minimized');
+    
+    // Show background elements when minimizing
+    retroBg.classList.remove('hidden');
     
     // Reset max icon just in case
     btnMax.innerText = '□';
@@ -127,9 +136,12 @@ btnMax.onclick = () => {
     appWindow.classList.remove('minimized'); // Show content immediately
     appWindow.classList.toggle('maximized');
     
+    // Hide background elements when maximized for performance
     if (appWindow.classList.contains('maximized')) {
+        retroBg.classList.add('hidden');
         btnMax.innerText = '🗗'; 
     } else {
+        retroBg.classList.remove('hidden');
         btnMax.innerText = '□';
     }
 };

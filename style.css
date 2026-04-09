@@ -65,6 +65,11 @@ body, html {
 }
 
 
+#retro-bg.hidden .retro-grid,
+#retro-bg.hidden .retro-centerpiece {
+    display: none;
+}
+
 @keyframes gridMove {
     0% { background-position: 0 0, 0 0; }
     100% { background-position: 0 60px, 0 0; }
@@ -235,6 +240,11 @@ body, html {
 }
 
 .cmd-trigger:hover { color: var(--neon-pink); }
+
+.cmd-trigger.copied {
+    color: var(--neon-pink) !important;
+    font-size: 18px;
+}
 .cmd-desc { font-size: 15px; color: #000; }
 
 /* --- FUN BUTTON STATES --- */
