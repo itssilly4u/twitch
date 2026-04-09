@@ -32,6 +32,7 @@ body, html {
     width: 100vw;
     height: 100vh;
     z-index: -1;
+    background: linear-gradient(to bottom, #0a0127 0%, #2b0b57 60%, #4b1d8d 100%);
 }
 
 #retro-bg video {
@@ -42,6 +43,7 @@ body, html {
     height: 100vh;
     object-fit: cover;
     z-index: -1;
+    background: transparent;
 }
 
 /* --- THE SECRET SILLY CENTERPIECE --- */
