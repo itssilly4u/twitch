@@ -5,6 +5,7 @@ const myCommands = [
     { name: "!7tv", desc: "Information about 7TV emotes for the channel.", type: "chat" },
     { name: "!bonk", desc: "Use this to bonk someone in chat!", type: "chat" },
     { name: "brb", desc: "Let chat know you're stepping away for a moment.", type: "chat" },
+    { name: "Commands", desc: "Gives a link to this website.", type: "chat" },
     { name: "!dance", desc: "Show off your best chat dance moves.", type: "chat" },
     { name: "!first", desc: "Shows who claimed the first spot in chat.", type: "chat" },
     { name: "!fleet", desc: "Check out the current Star Citizen fleet.", type: "chat" },
