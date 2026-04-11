@@ -1,12 +1,14 @@
 // --- MANAGE YOUR COMMANDS HERE ---
 const myCommands = [
     // --- CHAT COMMANDS ---
+    // { name: "", desc: "", type: "chat" },
     { name: "30k", desc: "Trigger the 30k message in chat.", type: "chat" },
     { name: "!7tv", desc: "Information about 7TV emotes for the channel.", type: "chat" },
     { name: "!bonk", desc: "Use this to bonk someone in chat!", type: "chat" },
     { name: "brb", desc: "Let chat know you're stepping away for a moment.", type: "chat" },
     { name: "!commands", desc: "Gives a link to this website.", type: "chat" },
     { name: "!dance", desc: "Show off your best chat dance moves.", type: "chat" },
+    { name: "!discord", desc: "Get a link to the Discord server.", type: "chat" },
     { name: "!first", desc: "Shows who claimed the first spot in chat.", type: "chat" },
     { name: "!fleet", desc: "Check out the current Star Citizen fleet.", type: "chat" },
     { name: "!hype", desc: "Bring the hype! Let's go!", type: "chat" },
@@ -14,6 +16,7 @@ const myCommands = [
     { name: "!lurk", desc: "Let me know you're hanging out in the shadows.", type: "chat" },
     { name: "o7", desc: "Salute the captain and chat. o7", type: "chat" },
     { name: "!prime", desc: "A quick reminder about free Amazon Prime subscriptions.", type: "chat" },
+    { name: "!raid", desc: "Get the raid message in chat.", type: "chat" },
     { name: "!rigged", desc: "When the game is clearly out to get us.", type: "chat" },
     { name: "!referral", desc: "Grab my Star Citizen referral code here.", type: "chat" },
     { name: "!specs", desc: "Check out the current PC build and streaming setup.", type: "chat" },
@@ -22,12 +25,15 @@ const myCommands = [
     { name: "!vibe", desc: "Time for a quick vibe check.", type: "chat" },
 
     // --- AUDIO COMMANDS ---
+    // { name: "", desc: "[Audio] ", type: "audio" },
     { name: "!blimp", desc: "[Audio] Play the blimp sound effect.", type: "audio" },
     { name: "!bobr", desc: "[Audio] Bóbr kurwa! Play the beaver sound.", type: "audio" },
     { name: "!burp", desc: "[Audio] Excuse you! Play a burp sound effect.", type: "audio" },
     { name: "!gamebad", desc: "[Audio] For when the game is completely borked.", type: "audio" },
+    { name: "!itsarock", desc: "[Audio] It's not just a stupid boulder!", type: "audio" },
     { name: "!lurkfromwork", desc: "[Audio] The official anthem of working hard or hardly working.", type: "audio" },
     { name: "!masterchief", desc: "[Audio] They put da Master Chief in da soda.", type: "audio" },
+    { name: "!rock", desc: "[Audio] I don't like this rock.", type: "audio" },
     { name: "!yeeha", desc: "[Audio] Yeehaw chucklefucks.", type: "audio" }
 ];
 
